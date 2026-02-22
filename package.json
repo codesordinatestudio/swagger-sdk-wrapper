@@ -26,7 +26,8 @@
     "README.md"
   ],
   "dependencies": {
-    "@sinclair/typebox": "^0.34.48"
+    "@sinclair/typebox": "^0.34.48",
+    "swagger-typescript-api": "^13.2.18"
   },
   "devDependencies": {
     "@types/bun": "latest",
