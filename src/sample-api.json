@@ -1,0 +1,368 @@
+{
+  "openapi": "3.1.1",
+  "info": {
+    "title": "Go Learn API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5555",
+      "description": "Development"
+    }
+  ],
+  "paths": {
+    "/todos": {
+      "get": {
+        "summary": "Get all todos",
+        "description": "Returns a list of all todo items",
+        "tags": [
+          "Todos"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "title",
+                      "completed"
+                    ],
+                    "properties": {
+                      "id": {
+                        "description": "Unique identifier for the todo item",
+                        "type": "number"
+                      },
+                      "title": {
+                        "description": "Title of the todo item",
+                        "type": "string"
+                      },
+                      "completed": {
+                        "description": "Completion status of the todo item",
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new todo",
+        "description": "Creates a new todo item with the provided title and completion status",
+        "tags": [
+          "Todos"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "title",
+                  "completed"
+                ],
+                "properties": {
+                  "title": {
+                    "description": "Title of the todo item",
+                    "type": "string"
+                  },
+                  "completed": {
+                    "description": "Completion status of the todo item",
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "title",
+                    "completed"
+                  ],
+                  "properties": {
+                    "id": {
+                      "description": "Unique identifier for the todo item",
+                      "type": "number"
+                    },
+                    "title": {
+                      "description": "Title of the todo item",
+                      "type": "string"
+                    },
+                    "completed": {
+                      "description": "Completion status of the todo item",
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/todos/{id}": {
+      "get": {
+        "summary": "Get a todo by ID",
+        "description": "Returns a specific todo item by its ID",
+        "tags": [
+          "Todos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "title",
+                    "completed"
+                  ],
+                  "properties": {
+                    "id": {
+                      "description": "Unique identifier for the todo item",
+                      "type": "number"
+                    },
+                    "title": {
+                      "description": "Title of the todo item",
+                      "type": "string"
+                    },
+                    "completed": {
+                      "description": "Completion status of the todo item",
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a todo",
+        "description": "Updates an existing todo item with the provided title and completion status",
+        "tags": [
+          "Todos"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "title",
+                  "completed"
+                ],
+                "properties": {
+                  "title": {
+                    "description": "Title of the todo item",
+                    "type": "string"
+                  },
+                  "completed": {
+                    "description": "Completion status of the todo item",
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "title",
+                    "completed"
+                  ],
+                  "properties": {
+                    "id": {
+                      "description": "Unique identifier for the todo item",
+                      "type": "number"
+                    },
+                    "title": {
+                      "description": "Title of the todo item",
+                      "type": "string"
+                    },
+                    "completed": {
+                      "description": "Completion status of the todo item",
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a todo",
+        "description": "Deletes a todo item by its ID",
+        "tags": [
+          "Todos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/todos/upload": {
+      "patch": {
+        "summary": "Upload a file for a todo",
+        "description": "Upload a file attachment via multipart form data",
+        "tags": [
+          "Todos"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "file"
+                ],
+                "properties": {
+                  "file": {
+                    "description": "The file to upload"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "file"
+                  ],
+                  "properties": {
+                    "file": {
+                      "type": "object",
+                      "required": [
+                        "name",
+                        "size",
+                        "type"
+                      ],
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "size": {
+                          "type": "number"
+                        },
+                        "type": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/events": {
+      "get": {
+        "summary": "Server-Sent Events stream for real-time notifications",
+        "description": "Establishes an SSE connection to receive real-time notifications",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
