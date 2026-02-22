@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codesordinatestudio/lucent.git"
+    "url": "git+https://github.com/codesordinatestudio/swagger-sdk-wrapper.git"
   },
   "exports": {
     ".": {
