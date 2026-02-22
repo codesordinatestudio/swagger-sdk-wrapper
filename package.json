@@ -1,12 +1,13 @@
 {
-  "name": "@codesordinate/swagger-sdk-wrapper",
+  "name": "@codesordinatestudio/swagger-sdk-wrapper",
+  "version": "0.0.2",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "module": "dist/index.js",
   "scripts": {
     "package": "tsup",
-    "publish-package": " npm publish"
+    "publish-package": "bun package && npm publish"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
